@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+build/
+dist/
+*.egg-info/
+picslim_out/
+.pytest_cache/
+_demo*/

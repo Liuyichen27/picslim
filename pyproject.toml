@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "picslim"
+version = "1.0.0"
+description = "批量压缩图片体积的命令行工具，支持目标体积自适应"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "Liuyichen27" }]
+keywords = ["image", "compress", "webp", "cli", "pillow"]
+classifiers = [
+  "Environment :: Console",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Multimedia :: Graphics",
+]
+dependencies = ["Pillow>=9.0.0"]
+
+[project.urls]
+Homepage = "https://github.com/Liuyichen27/picslim"
+
+[project.scripts]
+picslim = "picslim.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

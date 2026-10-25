@@ -1,0 +1,39 @@
+==================================================
+ picslim · 使用说明
+==================================================
+
+【这是什么】
+picslim —— 批量压缩图片体积。只读原图，结果写到另一个目录，绝不覆盖源文件。
+给一个体积上限，它先降质量，降到下限还超标才缩尺寸。
+
+【怎么装】
+需要 Python 3.8 或更高版本。把压缩包解压，在解压出来的文件夹里执行：
+
+    python -m pip install .
+（需要 Pillow：pip install pillow）
+装好后任何目录下都能用 `picslim` 命令。
+不想装也能直接跑：python -m picslim.cli …（在解压目录里）
+
+【怎么用】
+    picslim ./照片 -o ./压缩后 --max-size 500K
+    picslim ./配图 -o ./out -f webp -r -j 4
+
+【常用参数】
+    -o, --out DIR        输出目录（默认 picslim_out）
+    -m, --max-size 500K  目标体积上限，K/M 都行
+    -q, --quality 82     起始质量 1-100（默认 82）
+    --min-quality 35     质量下限，再降就不降了
+    -f, --format keep    输出格式：keep / webp / jpeg
+    -r, --recursive      递归子目录
+    -j, --jobs N         并发数
+    -n, --dry-run        只列出会处理哪些文件，不写盘
+
+【它的边界】
+压不动会直说，不会假装成功；JPEG 的透明通道会铺白底；自动纠正 EXIF 旋转。
+
+【怎么确认是新版】
+每次运行会在后台看一眼 GitHub，有新版本会打一行提示（查不到就安静跳过）。
+不想让它查，设环境变量 PICSLIM_NO_UPDATE=1 即可关闭。
+
+项目主页：https://github.com/Liuyichen27/picslim
+只有源码包没有安装包，装不动就提 issue。

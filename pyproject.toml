@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "picslim"
-version = "1.0.0"
+version = "1.1.0"
 description = "批量压缩图片体积的命令行工具，支持目标体积自适应"
 readme = "README.md"
 requires-python = ">=3.8"

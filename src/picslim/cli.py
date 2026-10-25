@@ -12,6 +12,8 @@ from __future__ import annotations
 import argparse
 import os
 import sys
+
+from . import __version__, _update
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
@@ -275,7 +277,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("-j", "--jobs", type=int, default=min(8, (os.cpu_count() or 4)),
                    help="并发数（默认 8）")
     p.add_argument("-n", "--dry-run", action="store_true", help="只列出会处理哪些文件，不写盘")
-    p.add_argument("-V", "--version", action="version", version="picslim 1.0.0")
+    p.add_argument("-V", "--version", action="version", version=f"picslim {__version__}")
     return p
 
 
